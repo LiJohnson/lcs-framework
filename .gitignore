@@ -1,11 +1,44 @@
+build
+logs
+.idea
 .gradle
-build/
+local.properties
+*.iml
+*.ipr
+*.iws
+src/main/java/com/zkjie/lire/app/controller/TestController.java
+src/main/resources/application-config.properties
+src/main/resources/logback.xml
 
-# Ignore Gradle GUI config
-gradle-app.setting
+src/main/resources/templates/test.html
+src/main/resources/static/css/*.css
+src/main/resources/static/css/*.map
 
-# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
-!gradle-wrapper.jar
+WebRoot/WEB-INF/classes
+.settings
+.classpath
+.mymetadata
+.project
+.tern-project
+build.xml
 
-# Cache of project
-.gradletasknamecache
+src/main/resources/static/node_modules
+src/main/resources/static/.sass-cache
+src/main/resources/static/bower_components
+src/main/resources/static/.sublime-gulp.cache
+src/main/resources/static/npm-debug.log
+
+
+/bin/linrui.log
+/src/test/resources/application-config.properties
+/bin/linrui.pid
+
+
+src/main/resources/templates/error.html
+hs_err_pid*.log
+
+.v8flags.*.json
+src/test/resources/logback.xml
+
+# other
+*.local
