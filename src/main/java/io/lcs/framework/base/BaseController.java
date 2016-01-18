@@ -1,25 +1,18 @@
 package io.lcs.framework.base;
 
 import com.google.gson.Gson;
-import io.lcs.lenrui.config.R;
-import io.lcs.lenrui.pojo.User;
 import org.apache.commons.lang3.StringEscapeUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.beans.PropertyEditorSupport;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -95,9 +88,5 @@ public class BaseController extends Base {
 			contextPath = "";
 		}
 		return F("redirect:%s%s", contextPath, path);
-	}
-
-	protected User getUser() {
-		return (User) this.session.getAttribute(R.SESSION_KEY.USER);
 	}
 }

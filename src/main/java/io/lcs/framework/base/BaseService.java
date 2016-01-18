@@ -1,7 +1,6 @@
 package io.lcs.framework.base;
 
 import com.google.gson.Gson;
-import io.lcs.lenrui.utils.AssertExt;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
@@ -98,7 +97,7 @@ public class BaseService extends Base {
 	}
 
 	/**
-	 * @see AssertExt#hasId(BasePojo, String)
+	 * @see io.lcs.framework.utils.AssertExt#hasId(BasePojo, String)
 	 * @param basePojo
 	 * @return
 	 */

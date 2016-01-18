@@ -4,7 +4,6 @@ import io.lcs.framework.annotation.Comment;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.lang.reflect.Field;
 
 /**
  * Created by lcs on 9/3/15.
