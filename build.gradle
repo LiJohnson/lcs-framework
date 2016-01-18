@@ -1,0 +1,82 @@
+buildscript {
+	repositories { jcenter() }
+	dependencies {
+		classpath "org.springframework.boot:spring-boot-gradle-plugin:1.3.1.RELEASE"
+		classpath 'org.springframework:springloaded:1.2.4.RELEASE'
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+version = "1.0.0"
+
+idea {
+	module {
+		inheritOutputDirs = false
+		outputDir = file("$buildDir/classes/main/")
+	}
+}
+
+configurations {
+	compile.exclude module: "spring-boot-starter-tomcat"
+}
+
+repositories {
+	jcenter()
+}
+
+dependencies {
+	compile fileTree(include: ['*.jar'], dir: 'libs')
+	compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+	compile("org.springframework.boot:spring-boot-starter-data-jpa")
+	compile("org.springframework.boot:spring-boot-starter-jetty")
+	compile("org.springframework.boot:spring-boot-starter-redis")
+	compile("org.springframework.boot:spring-boot-starter-actuator")
+
+	//compile("org.springframework.boot:spring-boot-devtools")
+
+	//compile("org.springframework.boot:spring-boot-starter-remote-shell")
+	compile("mysql:mysql-connector-java:5.1.18")
+	compile("com.h2database:h2:+")
+
+    compile("org.springframework.session:spring-session:1.0.2.RELEASE")
+	compile("org.apache.httpcomponents:httpclient:4.5.1")
+
+    compile("com.google.code.gson:gson:2.3.1")
+	compile("org.apache.commons:commons-lang3:3.0")
+	compile('dom4j:dom4j:1.6.1')
+
+	testCompile("junit:junit")
+	testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+
+springBoot {
+	noverify = true
+}
+
+jar {
+	baseName = project.name
+	version =  project.version
+	excludes = ['static/bower_components',
+				'static/node_modules',
+				'bower.json',
+				'package.json',
+				'gulpfile.js',
+				'logback.sample.xml',
+				'application-config-sample.properties']
+}
+
+tasks.withType(JavaCompile) {
+	options.encoding = "UTF-8"
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '2.6'
+}
+
