@@ -33,7 +33,7 @@ public class BaseService extends Base {
 	/**
 	 * 保处理这几个注解
 	 */
-	private final static String[] PERSIST_ANNOTATION = {"ID", "COLUMN", "MANYTOONE"};
+	private final static String[] PERSIST_ANNOTATION = new String[]{"ID", "COLUMN", "MANYTOONE"};
 
 	protected <T extends BasePojo> Specifications<T> initSearch(final T t) {
 		return this.initSearch(t, new String[0]);
