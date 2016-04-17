@@ -77,6 +77,10 @@ public class BaseService extends Base {
 						}
 						return null;
 					} else {
+						if (BasePojo.class.isAssignableFrom(field.getType())) {
+							long id = ((BasePojo) val2).getId();
+							if (id <= 0) return null;
+						}
 						return cb.equal(root.<String>get(field.getName()), val2);
 					}
 				}
