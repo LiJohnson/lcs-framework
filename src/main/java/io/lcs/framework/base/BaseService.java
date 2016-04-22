@@ -51,6 +51,7 @@ public class BaseService extends Base {
 			String filedName = field.getName();
 			Object val = null;
 			try {
+				//TODO fix bug : bool hideImage;
 				val = clazz.getDeclaredMethod(filedName.startsWith("is") ? filedName : "get" + filedName.substring(0, 1).toUpperCase() + filedName.substring(1)).invoke(t);
 			} catch (IllegalAccessException e) {
 				e.printStackTrace();
