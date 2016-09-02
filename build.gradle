@@ -9,12 +9,14 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
+apply plugin: 'maven'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-version = "1.0.0"
+version = "1.0.1"
 
+group = 'io.lcs'
 
 configurations {
 	compile.exclude module: "spring-boot-starter-tomcat"
@@ -46,12 +48,20 @@ springBoot {
 	noverify = true
 }
 
-
 tasks.withType(JavaCompile) {
 	options.encoding = "UTF-8"
 }
 
 task wrapper(type: Wrapper) {
 	gradleVersion = '2.6'
+}
+
+task packageSources(type: Jar, dependsOn: classes) {
+	classifier = 'sources'
+	from sourceSets.main.allSource
+}
+
+artifacts {
+	archives packageSources
 }
 
