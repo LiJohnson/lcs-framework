@@ -4,6 +4,7 @@ import io.lcs.framework.annotation.Comment;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by lcs on 9/3/15.
@@ -17,8 +18,14 @@ public class BasePojo extends BaseBean implements Serializable {
 	protected long id;
 
 	@Column(nullable = false)
+	@Version
 	@Comment("version")
 	protected int version;
+
+	@Column(nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
+	@Comment("创建时间")
+	private Date createTime;
 
 	public long getId() {
 		return id;
@@ -36,4 +43,11 @@ public class BasePojo extends BaseBean implements Serializable {
 		this.version = version;
 	}
 
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
 }
