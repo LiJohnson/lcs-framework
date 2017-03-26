@@ -69,7 +69,7 @@ public class BaseController extends Base {
 		});
 	}
 
-	@ExceptionHandler(IllegalArgumentException.class)
+	//@ExceptionHandler(IllegalArgumentException.class)
 	public Map hasException(IllegalArgumentException e) {
 		request.setAttribute("msg", e.getMessage());
 		throw e;
